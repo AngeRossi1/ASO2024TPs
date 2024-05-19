@@ -1,0 +1,31 @@
+2-HILOS)
+
+Tareas-Sin-Hilos:
+  
+Luego de ejecutar varias veces el código, se puede ver que el tiempo de ejecución es bastante predecible ya que solo varía en algunos milisegundos.
+
+Algunas funciones de la vida real que pueden ser consideradas de " máxima velocidad posible" son la telecomunicación, ya que la transmisión de datos, voz y video requieren procesamiento rápido y la velocidad de la máquina influye en la calidad y latencia de las comunicaciones.
+Un proceso de la vida real que puede ser considerado como de “velocidad de respuesta no dependiente de la velocidad de procesamiento” podría ser la respuesta humana a un estímulo inesperado, como reaccionar a un sonido fuerte o esquivar algún objeto que se aproxima de repente.
+
+Tareas-Con-Hilos:
+
+A diferencia del programa anterior, las tres tareas se inician al mismo tiempo.Por esta razón la primera tarea en terminar va a ser la que menos tiempo de ejecución tenga, en este caso la tarea 2, después le sigue la tarea 3 y por último la tarea 1.
+El tiempo de ejecución total también es diferente al del programa anterior, ya que las tareas no tienen que esperar a que las otras sean ejecutadas para poder iniciar su propia ejecución, acortando el tiempo final (en este caso) por unos cinco segundos.
+
+Un escenario real donde el multi-hilado puede mejorar el tiempo de respuesta de un sistema es cualquier servidor web que maneje muchas solicitudes de clientes al mismo tiempo.Sin hilos, el servidor procesaría las solicitudes de manera secuencial, lo que podría ser lento y poco eficiente.Con hilos, el servidor puede crear un hilo para cada solicitud entrante.Los hilos paralelos permiten que el servidor atienda a varios clientes simultáneamente.
+Esto mejora significativamente el tiempo de respuesta y la capacidad de manejo de carga del servidor.
+
+3-CONDICIÓN DE CARRERA)
+
+Sumador-Restador-Con-Race:
+
+El tiempo de ejecución de este programa es bastante rápido.Lo que sucede es que al ejecutar el programa varias veces,el valor final de la variable "acumulador" va cambiando.Esto sucede porque los hilos están compitiendo para ver quien actualiza el valor de la variable primero y si un hilo lee el valor de "acumulador" antes de que el otro lo actualice crea una inconsistencia.
+Esta inconsistencia se puede ser arreglada con un bloqueo/locks, lo que haría que si otro hilo está utilizando la variable el otro tenga que esperar a que esté desocupado.
+
+4-DETECCION Y CORRECCION DEL PROBLEMA)
+
+Sumador-Restador-Sin-Race:
+
+Luego de corregir el código anterior, el valor final del acumulador va a ser siempre 0 sin importar cuantas veces se ejecute y el tiempo de ejecución es bastante rápido.
+
+(Todo esto se puede apreciar en las capturas de pantalla)
